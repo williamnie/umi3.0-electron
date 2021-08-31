@@ -1,6 +1,5 @@
 import { app, BrowserWindow } from 'electron';
 import * as path from 'path';
-import * as url from 'url';
 
 let mainWindow = null;
 
@@ -11,21 +10,15 @@ function createWindow() {
     webPreferences: {
       nodeIntegration: true,
       // nodeIntegrationInWorker: true,
-      preload: path.join(__dirname, './public/renderer.js')
+      // preload: path.join(__dirname, './public/renderer.js') 这里必须用绝对地址
     }
   });
 
   if (process.env.NODE_ENV === 'development') {
-    mainWindow.loadURL('http://localhost:8000/#/');
+    mainWindow.loadURL('http://localhost:8090/#/');
     mainWindow.webContents.openDevTools();
   } else {
-    mainWindow.loadURL(
-      url.format({
-        pathname: path.join(__dirname, './dist/renderer/index.html'),
-        protocol: 'file:',
-        slashes: true,
-      }),
-    );
+    mainWindow.loadURL(`file:${path.join(__dirname, './dist/renderer/index.html')}`)
   }
 
   mainWindow.on('closed', () => {
