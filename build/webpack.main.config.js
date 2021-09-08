@@ -1,9 +1,8 @@
-const path = require('path');
 const webpack = require('webpack');
-const merge = require('webpack-merge');
+const { merge } = require('webpack-merge');
 const baseConfig = require('./webpack.base.config');
 
-module.exports = merge.smart(baseConfig, {
+module.exports = merge(baseConfig, {
   target: 'electron-main',
   entry: {
     main: './src/main/main.js',

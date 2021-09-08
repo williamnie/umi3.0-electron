@@ -4,11 +4,10 @@ export default {
   history: { type: 'hash' },
   outputPath: `../../dist/renderer`,
   publicPath: './',
-  dva: {
-    immer: true,
-    hmr: false,
-  },
-  title: 'umi 3.0',
+  title: 'Electron',
+  nodeModulesTransform: { type: 'none' },
+  webpack5: {},
+  mfsu: {},
 
   alias: buildrc.webpack.alias,
   ignoreMomentLocale: true,
