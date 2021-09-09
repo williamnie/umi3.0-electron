@@ -9,6 +9,7 @@ function createWindow() {
     width: 1200,
     webPreferences: {
       nodeIntegration: true,
+      contextIsolation: false,
       // nodeIntegrationInWorker: true,
       // preload: path.join(__dirname, './public/renderer.js') 这里必须用绝对地址
     }
