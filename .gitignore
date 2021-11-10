@@ -9,3 +9,4 @@ yarn.lock
 .vscode
 .umi
 src/renderer/.umi/
+src/renderer/.umi-production
